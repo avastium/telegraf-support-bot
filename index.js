@@ -2,14 +2,13 @@ const {Telegraf} = require('telegraf');
 const bot = new Telegraf(process.env.BOT_TOKEN);
 const mongoose = require('mongoose');
 
-async () => await mongoose.connect(process.env.DB).then().catch(e => console.log(e));
+const createConn = async () => await mongoose.connect(process.env.DB).then().catch(e => console.log(e));
+createConn();
 
-const groupID = -1001234567890;
+const groupID = -1001234567890; // YOUR GROUP ID
 
 const db = mongoose.connection;
-mongoose.Promise = global.Promise;
-const Schema = mongoose.Schema;
-const messageSchema = new Schema({
+const messageSchema = new mongoose.Schema({
   tg_id: {type: Number, default: 0},
   msg_id: {type: Number, default: 0},
   time: {type: Date, default: Date()}
@@ -33,10 +32,4 @@ bot.on('message', (ctx) => {
   }
 });
 
-bot.telegram.deleteWebhook();
-bot.launch({
-  webhook: {
-    domain: 'YOUR_APP_ENDPOINT',
-    port: process.env.PORT || 3000
-  }
-});
+bot.launch();
