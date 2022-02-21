@@ -1,9 +1,8 @@
-const {Telegraf} = require('telegraf');
+import { Telegraf } from 'telegraf';
+import mongoose from 'mongoose';
 const bot = new Telegraf(process.env.BOT_TOKEN);
-const mongoose = require('mongoose');
 
-const createConn = async () => await mongoose.connect(process.env.DB).then().catch(e => console.log(e));
-createConn();
+await mongoose.connect(process.env.DB).then().catch(e => console.log(e));
 
 const groupID = -1001234567890; // YOUR GROUP ID
 
@@ -12,7 +11,7 @@ const messageSchema = new mongoose.Schema({
   tg_id: {type: Number, default: 0},
   msg_id: {type: Number, default: 0},
   time: {type: Date, default: Date()}
-});
+}, {autoCreate: false});
 const Message = mongoose.model('Message', messageSchema);
 
 bot.start((ctx) => ctx.reply('Welcome to Support Bot.\nPlease ask your question and wait for the answer.'));
