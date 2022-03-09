@@ -1,7 +1,8 @@
 # Install
-* Create a bot and add the token to `process.env.BOT_TOKEN`.
-* Create a group and add a bot to it.
-* Copy the group ID to `const groupID = -1001234567890; // YOUR GROUP ID`.
+* Create a bot, add a token to `process.env.BOT_TOKEN`.
+* Create a MongoDB database, add a connection string to `process.env.DB`.
+* Create a group, add your bot to it.
+* Add a group ID to `process.env.GROUP_ID`. 
 
 # Usage
 The bot will forward all user messages to the group.
