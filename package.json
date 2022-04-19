@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "mongoose": "^6.2.3",
+    "mongoose": "^6.3.0",
     "telegraf": "^4.7.0"
   },
   "type": "module",
