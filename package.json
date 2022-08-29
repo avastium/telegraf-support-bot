@@ -1,7 +1,7 @@
 {
   "dependencies": {
-    "mongoose": "^6.3.3",
-    "telegraf": "^4.8.2"
+    "mongoose": "^6.5.3",
+    "telegraf": "^4.9.0"
   },
   "type": "module",
   "scripts": {
